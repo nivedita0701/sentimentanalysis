@@ -47,8 +47,7 @@ def prediction():
         print(message)
         response =  pred(message)
         print(type(response))
-        mess = message[::-1]
-    return jsonify({'message': mess})
+    return jsonify({'message': message})
 
 @app.route('/')
 def main():

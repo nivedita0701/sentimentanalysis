@@ -8,7 +8,9 @@ $(document).ready(function(){
             url : '/prediction'
         })
         .done(function(data){
-            $('#user-review-text').text(data.message)
+            $('#user-review-text').text(data.message).show()
         })
-    })
-})
+
+        event.preventDefault();
+    });
+});
