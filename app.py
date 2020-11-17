@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pickle
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request,redirect 
 from flask_ngrok import run_with_ngrok
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
