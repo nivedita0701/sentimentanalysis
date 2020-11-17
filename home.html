@@ -140,9 +140,7 @@
                                             <input type=text name="message" value="" maxlength="100">
                                             <input type="submit" value="Submit" onclick="check()">
                                         </form>
-                                        
-                                        <p id="user-review-text">{{message}}</p>
-                                        <p id="user-pred">{{sentiment}}</p>
+                                        <div id="user-review-text"></div>
                                     </div>
                                 </div>
                             </div>
@@ -153,12 +151,22 @@
         </div>
     </div>
 </div>
-<!-- <script>
+<script>
     function check()
     {
-        document.getElementById('user-review-text').innerHTML = document.sdf.message.value;
+        var para1 = document.createElement("p");
+        var node = document.createTextNode({{message}});
+        para1.appendChild(node);
+
+        var para2 = document.createElement("p");
+        var node1 = document.createTextNode({{sentiment}});
+        para2.appendChild(node1);
+
+        var element = document.getElementById("user-review-text");
+        element.appendChild(para1);
+        element.appendChild(para2);
     }
-</script> -->
+</script>
 <script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
 <script src="{{ url_for('static', filename='js/plugins.js')}}"></script>
 <script src="{{ url_for('static', filename='js/plugins2.js')}}"></script>
