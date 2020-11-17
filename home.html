@@ -137,10 +137,10 @@
                                         </div>
 
                                         <form name="sdf" method=POST action="{{ url_for('prediction') }}">
-                                            <input type=text name="message" value="" maxlength="100">
-                                            <input type="submit" value="Submit" onclick="check()">
+                                            <input type=text id="review-ip" name="message" value="" maxlength="100">
+                                            <input type="submit"  value="Submit" onclick="check()">
                                         </form>
-                                        <div id="user-review-text"></div>
+                                        <p id="user-review-text"></p>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
         </div>
     </div>
 </div>
-<script>
+<!-- <script>
     function check()
     {
         var para1 = document.createElement("p");
@@ -166,7 +166,7 @@
         element.appendChild(para1);
         element.appendChild(para2);
     }
-</script>
+</script> -->
 <script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
 <script src="{{ url_for('static', filename='js/plugins.js')}}"></script>
 <script src="{{ url_for('static', filename='js/plugins2.js')}}"></script>
