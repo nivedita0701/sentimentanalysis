@@ -47,7 +47,7 @@ def prediction():
         print(message)
         response =  pred(message)
         print(type(response))
-        return render_template("home.html", message=message, sentiment=response)
+        return redirect('main', message=message, sentiment=response)
     #return jsonify("Input text")
 
 @app.route('/')
