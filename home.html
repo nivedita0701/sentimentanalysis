@@ -135,10 +135,14 @@
                                             </div>
                                             <a href="#" class="redbtn">Write Review</a>
                                         </div>
-                                            <form method=POST action="{{ url_for('prediction') }}">
-                                                <input type=text name="message" value="" maxlength="100">
-                                                <input type="submit" value="Submit" >
-                                            </form>
+
+                                        <form name="sdf" method=POST action="{{ url_for('prediction') }}">
+                                            <input type=text name="message" value="" maxlength="100">
+                                            <input type="submit" value="Submit" onclick="check()">
+                                        </form>
+                                        
+                                        <p id="user-review-text"></p>
+                                        <p id="user-pred">{{sentiment}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +153,12 @@
         </div>
     </div>
 </div>
-
+<script>
+    function check()
+    {
+        document.getElementById('user-review-text').innerHTML = document.sdf.message.value;
+    }
+</script>
 <script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
 <script src="{{ url_for('static', filename='js/plugins.js')}}"></script>
 <script src="{{ url_for('static', filename='js/plugins2.js')}}"></script>
