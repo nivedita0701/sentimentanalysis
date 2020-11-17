@@ -155,11 +155,11 @@
     function check()
     {
         var para1 = document.createElement("p");
-        var node = document.createTextNode({{message}});
+        var node = document.createTextNode('{{message}}');
         para1.appendChild(node);
 
         var para2 = document.createElement("p");
-        var node1 = document.createTextNode({{sentiment}});
+        var node1 = document.createTextNode('{{sentiment}}');
         para2.appendChild(node1);
 
         var element = document.getElementById("user-review-text");
