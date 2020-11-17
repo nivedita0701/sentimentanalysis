@@ -25,14 +25,14 @@
     <meta name="format-detection" content="telephone-no">
 
     <!-- CSS files -->
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 <body>
 <!--preloading-->
 <div id="preloader">
-    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
+    <img class="logo" src="{{ url_for('static', filename='images/logo1.png')}}" alt="" width="119" height="58">
     <div id="status">
         <span></span>
         <span></span>
@@ -58,7 +58,7 @@
         <div class="row ipad-width2">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="movie-img sticky-sb">
-                    <img src="poster/sd.jpg" alt="">
+                    <img src="{{ url_for('static', filename='poster/sd.jpg')}}" alt="">
                     <div class="movie-btn"> 
                         <div class="btn-transform transform-vertical red">
                             <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
@@ -150,10 +150,10 @@
     </div>
 </div>
 
-<script src="js/jquery.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/plugins2.js"></script>
-<script src="js/custom.js"></script>
+<script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+<script src="{{ url_for('static', filename='js/plugins.js')}}"></script>
+<script src="{{ url_for('static', filename='js/plugins2.js')}}"></script>
+<script src="{{ url_for('static', filename='js/custom.js')}}"></script>
 </body>
 
 <!-- moviesingle11:03-->
