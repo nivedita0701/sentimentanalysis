@@ -42,7 +42,7 @@ run_with_ngrok(app)
 
 @app.route('/')
 def main():
-    return render_template('test.html')
+    return render_template('home.html')
 
 @app.route('/process', methods=['POST'])
 def process():
