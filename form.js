@@ -5,7 +5,7 @@ $(document).ready(function(){
                 message: $('#review-ip').val(),
             },
             type : 'POST',
-            url : '/prediction'
+            url : '/process'
         })
         .done(function(data){
             $('#user-review-text').text(data.message).show()
