@@ -153,17 +153,17 @@
 </div>
 
 <script>
-    $('#sdf').submit(function(event){
+    $("#sdf").submit(function(event){
         event.preventDefault();
         $.ajax({
             data: {
-                message: $('#review-ip').val(),
+                message: $("#review-ip").val(),
             },
             type : 'POST',
             url : '/process'
         })
         .done(function(data){
-            $('#rev').text(data["response"])
+            $("#rev").text(data["response"])
         });
     });
     
