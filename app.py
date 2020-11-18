@@ -40,19 +40,21 @@ def pred(usermoviereview):
 app = Flask(__name__, template_folder='./')
 run_with_ngrok(app)
 
-@app.route('/prediction', methods=['POST'])
-def prediction():
-    if request.method == "POST":
-        message = request.form['message']
-        print(message)
-        response =  pred(message)
-        print(type(response))
-    return jsonify({'message': message})
-
 @app.route('/')
 def main():
-    return render_template('home.html')
+    return render_template('test.html')
+
+@app.route('/process', methods=['POST'])
+def process():
+ 
+    message = request.form['message']
+    print(message)
+    response =  pred(message)
+    print(type(response))
+    return jsonify({'message': message, 'sentiment':response})
+
+
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
