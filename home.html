@@ -136,7 +136,7 @@
                                             <a href="#" class="redbtn">Write Review</a>
                                         </div>
 
-                                        <form id="sdf" method=POST>
+                                        <form id="sdf">
                                             <input type=text id="review-ip" name="message" value="" maxlength="100">
                                             <input type="submit"  value="Submit">
                                         </form>
@@ -151,7 +151,102 @@
         </div>
     </div>
 </div>
-
+<div class="page-single movie-single movie_single">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="movie-img sticky-sb">
+					<img src="{{ url_for('static', filename='poster/ch.jpg')}}" alt="">
+					<div class="movie-btn">	
+						<div class="btn-transform transform-vertical red">
+							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+							<div><a href="https://www.youtube.com/embed/BY-0SbSF2dE" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="movie-single-ct main-content">
+					<h1 class="bd-hd">Chhalaang	<span>2020</span></h1>
+					<div class="movie-rate">
+						<div class="rate">
+							<i class="ion-android-star"></i>
+							<p><span>7.0</span> /10<br>
+							</p>
+						</div>
+						<div class="rate-star">
+							<p>Rate This Movie:  </p>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star"></i>
+							<i class="ion-ios-star-outline"></i>
+							<i class="ion-ios-star-outline"></i>
+						</div>
+					</div>
+					<div class="movie-tabs">
+						<div class="tabs">
+							<ul class="tab-links tabs-mv">
+								<li class="active"><a href="#overview1">Overview</a></li>
+								<li><a href="#reviews1"> Reviews</a></li>                        
+							</ul>
+						    <div class="tab-content">
+						        <div id="overview1" class="tab active">
+						            <div class="row">
+						            	<div class="col-md-8 col-sm-12 col-xs-12">
+						            		<h2 style="color: white;">Mahender Singh Hooda, aka Montu, lives with his father, Kamlesh Singh Hooda, His Mother and his younger brother. He is a happy go lucky small PTI teacher inadvertently attracted to the new computer teacher, Neelima "Neelu" Mehra. He faces competition from a new senior PT teacher, Inder Mohan Singh, who excels where Montu performs weakly. However, when Montu and Inder have an argument, they decide to settle their dispute by pitting their teams against one another. But, Montu's Younger brother Monty is in Singh's Team. In the end, Montu's Team wins, and Singh and Montu agree to work side by side and Neelima approves the relationship between Montu and Her.</h2>
+						            	</div>
+						            	<div class="col-md-4 col-xs-12 col-sm-12">
+						            		<div class="sb-it">
+						            			<h6>Director: </h6>
+						            			<p><a href="#">Hansal Mehta</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Writer: </h6>
+						            			<p><a href="#">Luv Ranjan,</a> <a href="#">Aseem Arrora</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Stars: </h6>
+						            			<p><a href="#">Rajkummar Rao,</a> <a href="#">Nushrat Bharucha,</a> <a href="#">Mohammed Zeeshan Ayyub,</a><a href="#">Saurabh Shukla</a></p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>Run Time:</h6>
+						            			<p>136 min</p>
+						            		</div>
+						            		<div class="sb-it">
+						            			<h6>MMPA Rating:</h6>
+						            			<p>U/A</p>
+											</div>
+						            	</div>
+						            </div>
+						        </div>
+						        <div id="reviews1" class="tab review">
+						           <div class="row">
+						            	<div class="rv-hd">
+						            		<div class="div">
+							            		<h3>Related Movies To</h3>
+						       	 				<h2>Chhalaang</h2>
+							            	</div>
+                                            <a href="#" class="redbtn">Write Review</a>
+                                            <form id="ch">
+                                                <input type=text id="review-ip-ch" name="message" value="" maxlength="100">
+                                                <input type="submit"  value="Submit">
+                                            </form>
+                                            <h2><span id="rev-ch"></span></h2>
+						            	</div>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <script>
     $("#sdf").submit(function(event){
         event.preventDefault();
