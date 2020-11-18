@@ -136,11 +136,11 @@
                                             <a href="#" class="redbtn">Write Review</a>
                                         </div>
 
-                                        <form name="sdf" >
+                                        <form id="sdf" >
                                             <input type=text id="review-ip" name="message" value="" maxlength="100">
                                             <input type="submit"  value="Submit">
                                         </form>
-                                        <div id="user-review-text" role="alert" style="display: none;"></div>
+                                        <h2><span id="rev"></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +152,22 @@
     </div>
 </div>
 
-
+<script>
+    $('sdf').submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            data: {
+                message: $('#review-ip').val(),
+            },
+            type : 'POST',
+            url : '/process'
+        })
+        .done(function(data){
+            $('#rev').text(data["response"])
+        });
+    });
+    
+</script>
 <!-- <script>
     function check()
     {

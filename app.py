@@ -51,7 +51,7 @@ def process():
     print(message)
     response =  pred(message)
     print(type(response))
-    return jsonify({'message': message, 'sentiment':response})
+    return jsonify(response=response)
 
 
 
