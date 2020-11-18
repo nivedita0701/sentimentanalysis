@@ -44,7 +44,7 @@ run_with_ngrok(app)
 def main():
     return render_template('home.html')
 
-@app.route('/process', methods=['POST'])
+@app.route('/process', methods=['GET','POST'])
 def process():
  
     message = request.form['message']
