@@ -366,7 +366,7 @@
                                             <a class="redbtn">Write Review</a>
                                         </div>
 
-                                        <form id="sdf" method="post">
+                                        <form id="sdf" method=POST action="{{ url_for('process') }}">
                                             <input type=text id="review-ip" name="message" value="" maxlength="100">
                                             <input type="submit"  value="Submit">
                                         </form>

@@ -44,14 +44,14 @@ run_with_ngrok(app)
 def main():
     return render_template('home.html')
 
-@app.route('/process', methods=['GET','POST'])
+@app.route('/process', methods=['POST', 'GET'])
 def process():
- 
-    message = request.form['message']
-    print(message)
-    response =  pred(message)
-    print(type(response))
-    return jsonify(response=response)
+    if request.method == "POST":
+        message = request.form['message']
+        print(message)
+        response =  pred(message)
+        print(type(response))
+        return jsonify(response=response)
 
 
 
