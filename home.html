@@ -366,7 +366,7 @@
                                             <a class="redbtn">Write Review</a>
                                         </div>
 
-                                        <form id="sdf">
+                                        <form id="sdf" method="post">
                                             <input type=text id="review-ip" name="message" value="" maxlength="100">
                                             <input type="submit"  value="Submit">
                                         </form>
@@ -920,21 +920,35 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
-				 <a href="HOME.html"><img class="logo" src="{{ url_for('static', filename='images/logo1.png')}}" alt=""></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+				 <a href="home.html"><img class="logo" src="{{ url_for('static', filename='images/logo1.png')}}" alt=""></a>
 			</div>
-			<div class="flex-child-ft item1">
-				<div class="row">
-					<div class="social-link">
-						<p>Follow us: </p>
-						<a href="#"><i class="ion-social-facebook"></i></a>
-						<a href="#"><i class="ion-social-twitter"></i></a>
-						<a href="#"><i class="ion-social-googleplus"></i></a>
-						<a href="#"><i class="ion-social-youtube"></i></a>
-					</div>
+			<div class="flex-child-ft item2">
+				<div class="tabs">
+					<ul class="tab-links-2">
+						<li class="active"><a href="#tab21"> ABOUT US </a></li>
+						<li ><a href="#tab22"> CONTACT US </a></li>
+						<li><a href="#tab23">  RECOMMEND US  </a></li>                      
+					</ul>
+				    <div class="tab-content">
+				        <div id="tab21" class="tab">
+				            <div class="row">
+				            	<!-- content -->
+				            </div>
+				        </div>
+				        <div id="tab22" class="tab active">
+				           <div class="row">
+				            	<!-- CONTACT US AT -->
+				            </div>
+				        </div>
+				        <div id="tab23" class="tab">
+				        	<div class="row">
+				            	<h2 class="footer_heading">Email me</h2>
+								<p><a href="mailto:hritiksingh016@gmail.com">hritiksingh016@gmail.com</a></p>
+				            </div>
+			       	 	</div>
+				    </div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
