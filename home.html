@@ -367,10 +367,19 @@
                                         </div>
 
                                         <form id="sdf" method=POST action="{{ url_for('process') }}">
+                                            <input type=text name="name" value="" maxlength="100">
                                             <input type=text id="review-ip" name="message" value="" maxlength="100">
-                                            <input type="submit"  value="Submit">
+                                            <input type="submit" name="sd" value="Submit">
+                                            <div>
+                                                {% for re in revs1 %}
+                                                <p><strong>{{ re.name }}</strong></p><br>
+                                                <p>{{re.date_entered }} : </p><br>
+                                                <p>{{re.review }}</p>
+                                                <p><b> percentage rating : {{ re.percent }} </b></p>
+                                                <br>
+                                                <br>
+                                            </div>
                                         </form>
-                                        <h2><span id="rev"></span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -462,8 +471,18 @@
                                             <a  class="redbtn">Write Review</a>
                                         </div>
                                         <form id="ch">
+                                            <input type=text id="review-ip" name="name" value="" maxlength="100">
                                             <input type=text id="review-ip-ch" name="message" value="" maxlength="100">
-                                            <input type="submit"  value="Submit">
+                                            <input type="submit"  name="ch" value="Submit">
+                                            <div>
+                                                {% for re in revs2 %}
+                                                <p><strong>{{ re.name }}</strong></p><br>
+                                                <p>{{re.date_entered }} : </p><br>
+                                                <p>{{re.review }}</p>
+                                                <p><b> percentage rating : {{ re.percent }} </b></p>
+                                                <br>
+                                                <br>
+                                            </div>
                                         </form>
                                         <h2><span id="rev-ch"></span></h2>
 						            </div>
@@ -559,8 +578,18 @@
 							            	<a href="#" class="redbtn">Write Review</a>
                                         </div>
                                         <form id="av">
+                                            <input type=text id="review-ip" name="name" value="" maxlength="100">
                                             <input type=text id="review-ip-av" name="message" value="" maxlength="100">
-                                            <input type="submit"  value="Submit">
+                                            <input type="submit" name="av"  value="Submit">
+                                            <div>
+                                                {% for re in revs3 %}
+                                                <p><strong>{{ re.name }}</strong></p><br>
+                                                <p>{{re.date_entered }} : </p><br>
+                                                <p>{{re.review }}</p>
+                                                <p><b> percentage rating : {{ re.percent }} </b></p>
+                                                <br>
+                                                <br>
+                                            </div>
                                         </form>
                                         <h2><span id="rev-av"></span></h2>
 						            </div>
@@ -654,9 +683,19 @@
 							            	</div>
 							            	<a href="#" class="redbtn">Write Review</a>
                                         </div>
-                                        <form id="av">
+                                        <form id="hp">
+                                            <input type=text id="review-ip" name="name" value="" maxlength="100">
                                             <input type=text id="review-ip-hp" name="message" value="" maxlength="100">
-                                            <input type="submit"  value="Submit">
+                                            <input type="submit" name="hp"  value="Submit">
+                                            <div>
+                                                {% for re in revs4 %}
+                                                <p><strong>{{ re.name }}</strong></p><br>
+                                                <p>{{re.date_entered }} : </p><br>
+                                                <p>{{re.review }}</p>
+                                                <p><b> percentage rating : {{ re.percent }} </b></p>
+                                                <br>
+                                                <br>
+                                            </div>
                                         </form>
                                         <h2><span id="rev-hp"></span></h2>
 						            </div>
@@ -749,9 +788,19 @@
 							            	</div>
 							            	<a href="#" class="redbtn">Write Review</a>
                                         </div>
-                                        <form id="av">
+                                        <form id="laxmi">
+                                            <input type=text  name="name" value="" maxlength="100">
                                             <input type=text id="review-ip-lx" name="message" value="" maxlength="100">
-                                            <input type="submit"  value="Submit">
+                                            <input type="submit" name="laxmii" value="Submit">
+                                            <div>
+                                                {% for re in revs5 %}
+                                                <p><strong>{{ re.name }}</strong></p><br>
+                                                <p>{{re.date_entered }} : </p><br>
+                                                <p>{{re.review }}</p>
+                                                <p><b> percentage rating : {{ re.percent }} </b></p>
+                                                <br>
+                                                <br>
+                                            </div>
                                         </form>
                                         <h2><span id="rev-lx"></span></h2>
 						            </div>
