@@ -41,7 +41,7 @@ def pred(usermoviereview):
 app = Flask(__name__, template_folder='./') 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/my_data'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/my_data'
 
 db = SQLAlchemy(app)
 
