@@ -9,6 +9,7 @@ import h5py
 from keras.models import load_model
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import pymysql
 # load the dataset but only keep the top n words, zero the rest
 top_words = 10000
 max_words = 500
