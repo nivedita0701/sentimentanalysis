@@ -9,7 +9,6 @@ import h5py
 from keras.models import load_model
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import pymysql
 # load the dataset but only keep the top n words, zero the rest
 top_words = 10000
 max_words = 500
@@ -42,7 +41,7 @@ def pred(usermoviereview):
 app = Flask(__name__, template_folder='./') 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/my_data'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/my_data'
 
 db = SQLAlchemy(app)
 
