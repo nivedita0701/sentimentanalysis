@@ -193,6 +193,13 @@ def main():
     avg_hp = truncate(avg_hp)
     avg_lx = truncate(avg_lx)
 
+    avg_sd_int = int(avg_sd)
+    avg_ch_int = int(avg_ch)
+    avg_av_int = int(avg_av)
+    avg_hp_int = int(avg_hp)
+    avg_lx_int = int(avg_lx)
+
+
     if request.method == "POST":
         sdf = shakuntala.query.all()
         count = 0
@@ -251,6 +258,11 @@ def main():
         avg_hp = truncate(avg_hp)
         avg_lx = truncate(avg_lx)
 
+        avg_sd_int = int(avg_sd)
+        avg_ch_int = int(avg_ch)
+        avg_av_int = int(avg_av)
+        avg_hp_int = int(avg_hp)
+        avg_lx_int = int(avg_lx)
         if 'sd' in request.form:
             shakuntala_rev(request)
 
@@ -269,11 +281,9 @@ def main():
             sdf5 = laxmii.query.all()
 
             avg_sd = truncate(avg_sd)
-            avg_ch = truncate(avg_ch)
-            avg_av = truncate(avg_av)
-            avg_hp = truncate(avg_hp)
-            avg_lx = truncate(avg_lx)
-            return render_template("home.html", revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx )
+            avg_sd_int = int(avg_sd)
+
+            return render_template("home.html", revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx,avg_sd_int=avg_sd_int,avg_ch_int=avg_ch_int,avg_av_int=avg_av_int,avg_hp_int=avg_hp_int,avg_lx_int=avg_lx_int)
         if 'hp' in request.form:
             hp_rev(request)
             sdf = shakuntala.query.all()
@@ -290,12 +300,10 @@ def main():
                 avg_hp *= 10
             sdf5 = laxmii.query.all()
 
-            avg_sd = truncate(avg_sd)
-            avg_ch = truncate(avg_ch)
-            avg_av = truncate(avg_av)
             avg_hp = truncate(avg_hp)
-            avg_lx = truncate(avg_lx)
-            return render_template("home.html",revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx)
+            
+            avg_hp_int = int(avg_hp)
+            return render_template("home.html",revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx,avg_sd_int=avg_sd_int,avg_ch_int=avg_ch_int,avg_av_int=avg_av_int,avg_hp_int=avg_hp_int,avg_lx_int=avg_lx_int)
         if 'av' in request.form:
             avengers_rev(request)
             sdf = shakuntala.query.all()
@@ -312,12 +320,10 @@ def main():
             sdf4 = harry.query.all()
             sdf5 = laxmii.query.all()
 
-            avg_sd = truncate(avg_sd)
-            avg_ch = truncate(avg_ch)
+
             avg_av = truncate(avg_av)
-            avg_hp = truncate(avg_hp)
-            avg_lx = truncate(avg_lx)
-            return render_template("home.html", revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx)
+            avg_av_int = int(avg_av)
+            return render_template("home.html", revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx,avg_sd_int=avg_sd_int,avg_ch_int=avg_ch_int,avg_av_int=avg_av_int,avg_hp_int=avg_hp_int,avg_lx_int=avg_lx_int)
         if 'ch' in request.form:
             chhalaang_rev(request)
             sdf = shakuntala.query.all()
@@ -334,12 +340,10 @@ def main():
             sdf4 = harry.query.all()
             sdf5 = laxmii.query.all()
 
-            avg_sd = truncate(avg_sd)
             avg_ch = truncate(avg_ch)
-            avg_av = truncate(avg_av)
-            avg_hp = truncate(avg_hp)
-            avg_lx = truncate(avg_lx)
-            return render_template("home.html", revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx)
+            avg_ch_int = int(avg_ch)
+            
+            return render_template("home.html", revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx,avg_sd_int=avg_sd_int,avg_ch_int=avg_ch_int,avg_av_int=avg_av_int,avg_hp_int=avg_hp_int,avg_lx_int=avg_lx_int)
         if 'laxmii' in request.form:
             laxmii_rev(request)
             sdf = shakuntala.query.all()
@@ -356,14 +360,11 @@ def main():
                 avg_lx /= count
                 avg_lx *= 10
 
-            avg_sd = truncate(avg_sd)
-            avg_ch = truncate(avg_ch)
-            avg_av = truncate(avg_av)
-            avg_hp = truncate(avg_hp)
             avg_lx = truncate(avg_lx)
-            return render_template("home.html",revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx)
+            avg_lx_int = int(avg_lx)
+            return render_template("home.html",revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5,avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx,avg_sd_int=avg_sd_int,avg_ch_int=avg_ch_int,avg_av_int=avg_av_int,avg_hp_int=avg_hp_int,avg_lx_int=avg_lx_int)
     
-    return render_template('home.html',revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5, avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx)
+    return render_template('home.html',revs1=sdf, revs2=sdf2, revs3=sdf3, revs4=sdf4, revs5=sdf5, avg_sd=avg_sd, avg_av=avg_av, avg_ch=avg_ch, avg_hp=avg_hp, avg_lx=avg_lx,avg_sd_int=avg_sd_int,avg_ch_int=avg_ch_int,avg_av_int=avg_av_int,avg_hp_int=avg_hp_int,avg_lx_int=avg_lx_int)
 
 
 

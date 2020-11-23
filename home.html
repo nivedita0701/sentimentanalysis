@@ -333,21 +333,18 @@ input[type=text]:focus {
                     <div class="movie-rate">
                         <div class="rate">
                             <i class="ion-android-star"></i>
-                            <p><span>{{ avg_sd }}</span> /10<br>
+                            <p><span id="js-sd">{{ avg_sd }}</span> /10<br>
                             </p>
                         </div>
                         <div class="rate-star">
-                            <p>Rate This Movie:  </p>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star"></i>
-                            <i class="ion-ios-star-outline"></i>
-                            <i class="ion-ios-star-outline"></i>
-                            <i class="ion-ios-star-outline"></i>
-                            <i class="ion-ios-star-outline"></i>
+                            <p>Movie Rating:  </p>
+                            {% for x in range(0,avg_sd_int) %}
+                                <i class="ion-ios-star"></i>
+                            {% endfor %}
+                            {% if (avg_sd - avg_sd_int) >= 0.5 %}
+                                <i class="ion-ios-star-half" style="color:#f5b50a"></i>
+                            {% endif %}
+                            
                         </div>
                     </div>
                     <div class="movie-tabs">
@@ -452,16 +449,13 @@ input[type=text]:focus {
 							</p>
 						</div>
 						<div class="rate-star">
-							<p>Rate This Movie:  </p>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
+							<p>Movie Rating:  </p>
+							{% for x in range(0,avg_ch_int) %}
+                                <i class="ion-ios-star"></i>
+                            {% endfor %}
+                            {% if (avg_ch - avg_ch_int) >= 0.5 %}
+                                <i class="ion-ios-star-half" style="color:#f5b50a"></i>
+                            {% endif %}
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -567,17 +561,13 @@ input[type=text]:focus {
 							</p>
 						</div>
 						<div class="rate-star">
-							<p>Rate This Movie:  </p>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
+							<p>Movie Rating:  </p>
+							{% for x in range(0,avg_av_int) %}
+                                <i class="ion-ios-star"></i>
+                            {% endfor %}
+                            {% if (avg_av - avg_av_int) >= 0.5 %}
+                                <i class="ion-ios-star-half" style="color:#f5b50a"></i>
+                            {% endif %}
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -684,16 +674,13 @@ input[type=text]:focus {
 							</p>
 						</div>
 						<div class="rate-star">
-							<p>Rate This Movie:  </p>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
+							<p>Movie Rating:  </p>
+							{% for x in range(0,avg_hp_int) %}
+                                <i class="ion-ios-star"></i>
+                            {% endfor %}
+                            {% if (avg_hp - avg_hp_int) >= 0.5 %}
+                                <i class="ion-ios-star-half" style="color:#f5b50a"></i>
+                            {% endif %}
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -800,16 +787,13 @@ input[type=text]:focus {
 							</p>
 						</div>
 						<div class="rate-star">
-							<p>Rate This Movie:  </p>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
-							<i class="ion-ios-star-outline"></i>
+							<p>Movie Rating:  </p>
+							{% for x in range(0,avg_lx_int) %}
+                                <i class="ion-ios-star"></i>
+                            {% endfor %}
+                            {% if (avg_lx - avg_lx_int) >= 0.5 %}
+                                <i class="ion-ios-star-half" style="color:#f5b50a"></i>
+                            {% endif %}
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -1071,20 +1055,32 @@ input[type=text]:focus {
 </footer>
 
 <!-- <script>
-    function check()
+    sd_star = document.querySelectorAll( '.rate-star-sd i')
+    for (let i = 0; i < 10 ; i++)
     {
-        var para1 = document.createElement("p");
-        var node = document.createTextNode('{{message}}');
-        para1.appendChild(node);
-
-        var para2 = document.createElement("p");
-        var node1 = document.createTextNode('{{sentiment}}');
-        para2.appendChild(node1);
-
-        var element = document.getElementById("user-review-text");
-        element.appendChild(para1);
-        element.appendChild(para2);
+        if (sd_star[i].classList.contains(ion-ios-star))
+            sd_star[i].classList.remove('ion-ios-star')
+        if (sd_star[i].classList.contains(ion-ios-star-half))
+            sd_star[i].classList.remove('ion-ios-star')
+        if (sd_star[i].classList.contains(ion-ios-star-outline))
+            sd_star[i].classList.remove('ion-ios-star')
     }
+    let i = 0
+    avg = {{ avg_av }}
+    for (i = 0; i < avg ; i++) {
+        sd_star[i].classList.add('ion-ios-star')
+    }
+    if( avg/10 >= 0.5 && i < 10)
+    {
+        sd_star[i].classList.add('ion-ios-star-half')
+        i++
+    }
+    while(i < 10)
+    {
+        sd_star[i].classList.add('ion-ios-star-outline')
+        i++
+    }
+
 </script> -->
 
 <script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
