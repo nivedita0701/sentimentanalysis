@@ -29,6 +29,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
     <style>
+
+   input[type=text] {
+  width: 50%;
+  -webkit-transition: width .35s ease-in-out;
+  transition: width .35s ease-in-out;
+}
+input[type=text]:hover {
+  width: 85%;
+}
+input[type=text]:focus {
+  width: 85%;
+}
    .myButton {
 	box-shadow: -1px 15px 14px -7px #276873;
 	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
@@ -51,6 +63,9 @@
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+.example::-webkit-scrollbar {
+  display: none;
 }
     </style>
   
@@ -84,7 +99,7 @@
                                 <span class="blue"><a href="#">Sci-fi</a></span> <span class="yell"><a href="#">action</a></span>
                             </div>
                             <h6><a href="#">Avengers:Endgame</a></h6>
-                            <p><i class="ion-android-star"></i><span>8.4</span> /10</p>
+                            <p><i class="ion-android-star"></i><span>{{ avg_av }}</span> /10</p>
                         </div>
                     </div>
                     <div class="movie-item">
@@ -96,7 +111,7 @@
                                 <span class="red"><a href="#">Fantasy</a></span> <span class="orange"><a href="#">Adventure</a></span>
                             </div>
                             <h6><a href="#">Harry Potter and the Deathly Hallows</a></h6>
-                            <p><i class="ion-android-star"></i><span>7.7</span> /10</p>
+                            <p><i class="ion-android-star"></i><span>{{ avg_hp }}</span> /10</p>
                         </div>
                     </div>
                     <div class="movie-item">
@@ -108,7 +123,7 @@
                                 <span class="green"><a href="#">Comedy</a></span> <span class="red"><a href="#">Drama</a></span>
                             </div>
                             <h6><a href="#">Chhalaang</a></h6>
-                            <p><i class="ion-android-star"></i><span>7.0</span> /10</p>
+                            <p><i class="ion-android-star"></i><span>{{ avg_ch }}</span> /10</p>
                         </div>
                     </div>
                     <div class="movie-item">
@@ -120,7 +135,7 @@
                                 <span class="blue"><a href="#">Biopic</a></span> 
                             </div>
                             <h6><a href="#">Shakuntala Devi</a></h6>
-                            <p><i class="ion-android-star"></i><span>6.1</span> /10</p>
+                            <p><i class="ion-android-star"></i><span>{{ avg_sd }}</span> /10</p>
                         </div>
                     </div>
                     <div class="movie-item">
@@ -132,7 +147,7 @@
                                 <span class="orange"><a href="#">Adventure</a></span> <span class="red"><a href="#">Horror</a></span>
                             </div>
                             <h6><a href="#">Laxmii</a></h6>
-                            <p><i class="ion-android-star"></i><span>2.2</span> /10</p>
+                            <p><i class="ion-android-star"></i><span>{{ avg_lx }}</span> /10</p>
                         </div>
                     </div>
                     <div class="movie-item">
@@ -192,7 +207,7 @@
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">Avengers:Endgame</a></h6>
-                                                    <p><i class="ion-android-star"></i><span>8.4</span> /10</p>
+                                                    <p><i class="ion-android-star"></i><span>{{ avg_av }}</span> /10</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -206,7 +221,7 @@
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">Harry Potter and the Deathly Hallows</a></h6>
-                                                    <p><i class="ion-android-star"></i><span>7.7</span> /10</p>
+                                                    <p><i class="ion-android-star"></i><span>{{ avg_hp }}</span> /10</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -220,7 +235,7 @@
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">Chhalaang</a></h6>
-                                                    <p><i class="ion-android-star"></i><span>7.0</span> /10</p>
+                                                    <p><i class="ion-android-star"></i><span>{{ avg_ch }}</span> /10</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,7 +249,7 @@
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">Shakuntala Devi</a></h6>
-                                                    <p><i class="ion-android-star"></i><span>6.1</span> /10</p>
+                                                    <p><i class="ion-android-star"></i><span>{{ avg_sd }}</span> /10</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -248,7 +263,7 @@
                                                 </div>
                                                 <div class="title-in">
                                                     <h6><a href="#">Laxmii</a></h6>
-                                                    <p><i class="ion-android-star"></i><span>2.2</span> /10</p>
+                                                    <p><i class="ion-android-star"></i><span>{{ avg_lx }}</span> /10</p>
                                                 </div>
                                             </div>
                                         </div>	
@@ -296,21 +311,10 @@
         </div>
     </div>
 </div>
-<div class="hero mv-single-hero">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- <h1> movie listing - list</h1>
-				<ul class="breadcumb">
-					<li class="active"><a href="#">Home</a></li>
-					<li> <span class="ion-ios-arrow-right"></span> movie listing</li>
-				</ul> -->
-			</div>
-		</div>
-	</div>
-</div>
+<br>
+<br>
 <div class="page-single movie-single movie_single">
-    <div class="container" id="shakuntala">
+    <div class="container example" id="shakuntala" style="height:14.28%; overflow-y:scroll;">
         <div class="row ipad-width2">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="movie-img sticky-sb">
@@ -329,7 +333,7 @@
                     <div class="movie-rate">
                         <div class="rate">
                             <i class="ion-android-star"></i>
-                            <p><span>6.1</span> /10<br>
+                            <p><span>{{ avg_sd }}</span> /10<br>
                             </p>
                         </div>
                         <div class="rate-star">
@@ -393,21 +397,21 @@
                                         </div>
 
                                         <form id="sdf" method=POST >
-                                            <div class="form-group" style="width: 85%;">
+                                            <div class="form-group">
                                             <input type=text id="review-ip" name="name" value="" maxlength="100" placeholder="Your name">
                                         </div>
-                                        <div class="form-group" style="width: 85%;">
-                                            <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80"></textarea>
-                                        </div>
-                                            <button type="submit"  name="sd" class="myButton" >Submit</button>
+                                        <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80" style="height:100px; width:85%; margin-bottom:10px"></textarea>
+                                        <!-- </div> -->
+                                            <button type="submit"  name="sd" class="myButton" style="margin-bottom:15px;" >Submit</button>
+                                            <br>
                                             
-                                        <div style="box-sizing: border-box; border: none; height: 320px; overflow-y: auto; width: 85%; padding: 10px ">
+                                        <div style="box-sizing: border-box; border: none; height: 270px; overflow-y: auto; width: 85%; padding: 10px;">
                                             {% for re in revs1 %}
-                                                <div style="background-color: rgb(55, 75, 112); padding: 10px;">
+                                                <div style="background-image: linear-gradient(to right,rgb(25, 40, 70),rgb(55, 75, 112),rgb(87, 102, 133), rgb(99, 115, 146),rgb(158, 175, 209));background-color: rgb(55, 75, 112); padding: 10px; box-shadow: -1px 15px 14px -7px rgb(63, 80, 114); border-radius:10px;">
                                                     <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
-                                                    <p style="size: 3px;">{{re.date_entered}}</p>
+                                                    <p style="size: 3px; color: yellow;">{{re.date_entered}}</p>
                                                     <div style="text-indent: 15px;">
-                                                        <p style="font-size: 20px;">{{re.review }}</p>
+                                                        <p style="font-size: 20px;" style="color: white;"><b>{{re.review }}</b></p>
                                                         <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
                                                     </div>
                                                 </div>
@@ -425,7 +429,7 @@
         </div>
     </div>
     <!-- Chhalaang -->
-    <div class="container2" id="chhalaang">
+    <div class="container example" id="chhalaang" style="height:14.28%; overflow-y:scroll;">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="movie-img sticky-sb">
@@ -444,7 +448,7 @@
 					<div class="movie-rate">
 						<div class="rate">
 							<i class="ion-android-star"></i>
-							<p><span>7.0</span> /10<br>
+							<p><span>{{ avg_ch }}</span> /10<br>
 							</p>
 						</div>
 						<div class="rate-star">
@@ -509,24 +513,24 @@
                                             <div class="form-group" style="width: 85%;">
                                                 <input type=text id="review-ip" name="name" value="" maxlength="100" placeholder="Your name">
                                             </div>
-                                            <div class="form-group" style="width: 85%;">
-                                                <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80"></textarea>
-                                            </div>
-                                                <button type="submit"  name="ch" class="myButton" >Submit</button>
+                                            <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80" style="height:100px; width:85%; margin-bottom:10px"></textarea>
+                                            <!-- </div> -->
+                                                <button type="submit"  name="ch" class="myButton" style="margin-bottom:15px;" >Submit</button>
+                                                <br>
                                                 
-                                            <div style="box-sizing: border-box; border: none; height: 320px; overflow-y: auto; width: 85%; padding: 10px ">
-                                                {% for re in revs2 %}
-                                                    <div style="background-color: rgb(55, 75, 112); padding: 10px;">
-                                                        <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
-                                                        <p style="size: 3px;">{{re.date_entered}}</p>
-                                                        <div style="text-indent: 15px;">
-                                                            <p style="font-size: 20px;">{{re.review }}</p>
-                                                            <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
+                                                <div style="box-sizing: border-box; border: none; height: 270px; overflow-y: auto; width: 85%; padding: 10px;">
+                                                    {% for re in revs2 %}
+                                                        <div style="background-image: linear-gradient(to right,rgb(25, 40, 70),rgb(55, 75, 112),rgb(87, 102, 133), rgb(99, 115, 146),rgb(158, 175, 209));background-color: rgb(55, 75, 112); padding: 10px; box-shadow: -1px 15px 14px -7px rgb(63, 80, 114); border-radius:10px;">
+                                                            <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
+                                                            <p style="size: 3px; color: yellow;">{{re.date_entered}}</p>
+                                                            <div style="text-indent: 15px;">
+                                                                <p style="font-size: 20px; color: white;"><b>{{re.review }}</b></p>
+                                                                <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <hr>
-                                                {% endfor %}
-                                            </div>
+                                                        <hr>
+                                                    {% endfor %}
+                                                </div>
                                         </form>
                                         <h2><span id="rev-ch"></span></h2>
 						            </div>
@@ -540,7 +544,7 @@
     </div>
 
     <!-- avengers -->
-    <div class="container3" id="avengers">
+    <div class="container example" id="avengers" style="height:14.28%; overflow-y:scroll;">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="movie-img sticky-sb">
@@ -559,7 +563,7 @@
 					<div class="movie-rate">
 						<div class="rate">
 							<i class="ion-android-star"></i>
-							<p><span>8.4</span> /10<br>
+							<p><span>{{ avg_av }}</span> /10<br>
 							</p>
 						</div>
 						<div class="rate-star">
@@ -622,28 +626,29 @@
 							            	<a href="#" class="redbtn">Write Review</a>
                                         </div>
                                         <form id="av" method=POST>
-                                            <div class="form-group" style="width: 85%;">
+                                            <div class="form-group">
                                                 <input type=text id="review-ip" name="name" value="" maxlength="100" placeholder="Your name">
                                             </div>
-                                            <div class="form-group" style="width: 85%;">
-                                                <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80"></textarea>
-                                            </div>
-                                                <button type="submit"  name="av" class="myButton" >Submit</button>
-                                                
-                                            <div style="box-sizing: border-box; border: none; height: 320px; overflow-y: auto; width: 85%; padding: 10px ">
-                                                {% for re in revs3 %}
-                                                    <div style="background-color: rgb(55, 75, 112); padding: 10px;">
-                                                        <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
-                                                        <p style="size: 3px;">{{re.date_entered}}</p>
-                                                        <div style="text-indent: 15px;">
-                                                            <p style="font-size: 20px;">{{re.review }}</p>
-                                                            <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
-                                                        </div>
-                                                    </div>
-                                                    <hr>
-                                                {% endfor %}
-                                            </div>
+                                            <!-- <div style="width: 85%; color:black; overflow-y: scroll; height:150px;
+                                            "> -->
+                                                <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80" style="height:100px; width:85%; margin-bottom:10px"></textarea>
+                                            <!-- </div> -->
+                                                <button type="submit"  name="av" class="myButton" style="margin-bottom:15px;" >Submit</button>
+                                                <br>
                                         </form>
+                                        <div style="box-sizing: border-box; border: none; height: 270px; overflow-y: auto; width: 85%; padding: 10px;">
+                                            {% for re in revs3 %}
+                                                <div style="background-image: linear-gradient(to right,rgb(25, 40, 70),rgb(55, 75, 112),rgb(87, 102, 133), rgb(99, 115, 146),rgb(158, 175, 209));background-color: rgb(55, 75, 112); padding: 10px; box-shadow: -1px 15px 14px -7px rgb(63, 80, 114); border-radius:10px;">
+                                                    <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
+                                                    <p style="size: 3px; color: yellow;">{{re.date_entered}}</p>
+                                                    <div style="text-indent: 15px;">
+                                                        <p style="font-size: 20px; color: white;"><b>{{re.review }}</b></p>
+                                                        <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                            {% endfor %}
+                                        </div>
                                         <h2><span id="rev-av"></span></h2>
 						            </div>
 						        </div>
@@ -654,8 +659,9 @@
 			</div>
 		</div>
     </div>
+
     <!-- harry potter -->
-	<div class="container4" id="harry">
+	<div class="container example" id="harry" style="height:14.28%; overflow-y:scroll;">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="movie-img sticky-sb">
@@ -674,7 +680,7 @@
 					<div class="movie-rate">
 						<div class="rate">
 							<i class="ion-android-star"></i>
-							<p><span>7.7</span> /10<br>
+							<p><span>{{ avg_hp }}</span> /10<br>
 							</p>
 						</div>
 						<div class="rate-star">
@@ -740,24 +746,24 @@
                                             <div class="form-group" style="width: 85%;">
                                                 <input type=text id="review-ip" name="name" value="" maxlength="100" placeholder="Your name">
                                             </div>
-                                            <div class="form-group" style="width: 85%;">
-                                                <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80"></textarea>
-                                            </div>
-                                                <button type="submit"  name="hp" class="myButton" >Submit</button>
+                                            <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80" style="height:100px; width:85%; margin-bottom:10px"></textarea>
+                                            <!-- </div> -->
+                                                <button type="submit"  name="hp" class="myButton" style="margin-bottom:15px;" >Submit</button>
+                                                <br>
                                                 
-                                            <div style="box-sizing: border-box; border: none; height: 320px; overflow-y: auto; width: 85%; padding: 10px ">
-                                                {% for re in revs4 %}
-                                                    <div style="background-color: rgb(55, 75, 112); padding: 10px;">
-                                                        <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
-                                                        <p style="size: 3px;">{{re.date_entered}}</p>
-                                                        <div style="text-indent: 15px;">
-                                                            <p style="font-size: 20px;">{{re.review }}</p>
-                                                            <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
+                                                <div style="box-sizing: border-box; border: none; height: 270px; overflow-y: auto; width: 85%; padding: 10px;">
+                                                    {% for re in revs4 %}
+                                                        <div style="background-image: linear-gradient(to right,rgb(25, 40, 70),rgb(55, 75, 112),rgb(87, 102, 133), rgb(99, 115, 146),rgb(158, 175, 209));background-color: rgb(55, 75, 112); padding: 10px; box-shadow: -1px 15px 14px -7px rgb(63, 80, 114); border-radius:10px;">
+                                                            <p style="color: white; font-size: 21px;"><b><U>{{ re.name }}</U></b></p>
+                                                            <p style="size: 3px; color: yellow;">{{re.date_entered}}</p>
+                                                            <div style="text-indent: 15px;">
+                                                                <p style="font-size: 20px; color: white;"><b>{{re.review }}</b></p>
+                                                                <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <hr>
-                                                {% endfor %}
-                                            </div>
+                                                        <hr>
+                                                    {% endfor %}
+                                                </div>
                                         </form>
                                         <h2><span id="rev-hp"></span></h2>
 						            </div>
@@ -769,8 +775,9 @@
 			</div>
 		</div>
     </div>
+
     <!-- Laxmii -->
-    <div class="container5" id="laxmi">
+    <div class="container example" id="laxmi" style="height:14.28%; overflow-y:scroll;">
 		<div class="row ipad-width2">
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="movie-img sticky-sb">
@@ -789,7 +796,7 @@
 					<div class="movie-rate">
 						<div class="rate">
 							<i class="ion-android-star"></i>
-							<p><span>2.2</span> /10<br>
+							<p><span>{{avg_lx}}</span> /10<br>
 							</p>
 						</div>
 						<div class="rate-star">
@@ -854,24 +861,24 @@
                                             <div class="form-group" style="width: 85%;">
                                             <input type=text id="review-ip" name="name" value="" maxlength="100" placeholder="Your name">
                                         </div>
-                                        <div class="form-group" style="width: 85%;">
-                                            <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80"></textarea>
-                                        </div>
-                                            <button type="submit"  name="laxmii" class="myButton" >Submit</button>
+                                        <textarea  id="review-ip-ch" name="message" placeholder="Write a review"rows="6" cols="80" style="height:100px; width:85%; margin-bottom:10px"></textarea>
+                                            <!-- </div> -->
+                                                <button type="submit"  name="laxmii" class="myButton" style="margin-bottom:15px;" >Submit</button>
+                                                <br>
                                             
-                                        <div style="box-sizing: border-box; border: none; height: 320px; overflow-y: auto; width: 85%; padding: 10px ">
-                                            {% for re in revs5 %}
-                                                <div style="background-color: rgb(55, 75, 112); padding: 10px;">
-                                                    <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
-                                                    <p style="size: 3px;">{{re.date_entered}}</p>
-                                                    <div style="text-indent: 15px;">
-                                                        <p style="font-size: 20px;">{{re.review }}</p>
-                                                        <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
-                                                    </div>
+                                                <div style="box-sizing: border-box; border: none; height: 270px; overflow-y: auto; width: 85%; padding: 10px;">
+                                                    {% for re in revs5 %}
+                                                        <div style="background-image: linear-gradient(to right,rgb(25, 40, 70),rgb(55, 75, 112),rgb(87, 102, 133), rgb(99, 115, 146),rgb(158, 175, 209));background-color: rgb(55, 75, 112); padding: 10px; box-shadow: -1px 15px 14px -7px rgb(63, 80, 114); border-radius:10px;">
+                                                            <p style="color: white; font-size: 21px;"><b>{{ re.name }}</b></p>
+                                                            <p style="size: 3px; color: yellow;">{{re.date_entered}}</p>
+                                                            <div style="text-indent: 15px;">
+                                                                <p style="font-size: 20px; color: white;"><b>{{re.review }}</b></p>
+                                                                <p style="color: yellow;"><b> percentage rating : {{ "{0:.2%}".format(re.percent) }} </b></p>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                    {% endfor %}
                                                 </div>
-                                                <hr>
-                                            {% endfor %}
-                                        </div>
                                         </form>
                                         <h2><span id="rev-lx"></span></h2>
 						            </div>
@@ -883,8 +890,9 @@
 			</div>
 		</div>
     </div>
+
     <!-- blackwidow -->
-    <div class="container6" id="bw">
+    <div class="container example" id="bw" style="height:14.28%; overflow-y:scroll;">
         <div class="row ipad-width2">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="movie-img sticky-sb">
@@ -954,12 +962,8 @@
         </div>
     </div>
 <!-- batman -->
-    <div>
-
-        <br>
-        <br>
-    </div>
-    <div class="container7" id="batman">
+    
+    <div class="container example" id="batman" style="height:14.28%; overflow-y:scroll;">
         <div class="row ipad-width2">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="movie-img sticky-sb">
@@ -1028,12 +1032,6 @@
             </div>
         </div>
     </div>
-    <br>
-
-    <br>
-
-    <br>
-
     <br>
 </div>
 <footer class="ht-footer">

@@ -25,6 +25,5 @@ tensorflow>=1.2.1
 unicodecsv==0.14.1
 keras>=2.0
 flask_ngrok
-mysqlclient
-Flask-MySQLdb
+
 
